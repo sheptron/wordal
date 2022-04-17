@@ -24,8 +24,22 @@ export const difficulty = {
 }
 
 const getRandomAnswer = () => {
-  const randomIndex = Math.floor(Math.random() * answers.length)
-  return answers[randomIndex].toUpperCase()
+  //const randomIndex = Math.floor(Math.random() * answers.length)
+  //return answers[randomIndex].toUpperCase()
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const game = urlParams.get('game')
+
+  //window.alert(game);
+
+  if(game == null)
+  {
+    const randomIndex = Math.floor(Math.random() * answers.length)
+    return answers[randomIndex].toUpperCase()
+
+  }
+  const index = parseInt(game)
+  return answers[index].toUpperCase()
 }
 
 type State = {
@@ -321,6 +335,25 @@ function App() {
       setGuessesInStreak(0)
     }
 
+    ///
+
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    const game = urlParams.get('game')
+
+    if(game != null)
+    {
+      const index = parseInt(game)
+      const nextGame = index + 1
+
+      urlParams.set('game', nextGame.toString());
+      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString();
+      window.history.pushState({path:newUrl},'',newUrl);
+
+      //console.log(urlParams.toString()); // return modified string.
+    }
+    ///
+
     setAnswer(initialStates.answer())
     setGameState(initialStates.gameState)
     setBoard(initialStates.board)
@@ -378,7 +411,7 @@ function App() {
             <Settings />
           </button>
           <h1 className="flex-1 text-center text-xl xxs:text-2xl sm:text-4xl tracking-wide font-bold font-righteous">
-            WORD MASTER
+            WORDAL
           </h1>
           <button
             type="button"
