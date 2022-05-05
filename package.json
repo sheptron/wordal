@@ -2,7 +2,7 @@
   "name": "wordal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sheptron.github.io/wordal",
+  "_homepage": "https://sheptron.github.io/wordal",
   "dependencies": {
     "@headlessui/react": "^1.4.2",
     "@testing-library/jest-dom": "^5.16.1",

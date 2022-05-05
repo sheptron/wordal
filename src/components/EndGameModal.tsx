@@ -94,7 +94,7 @@ export const EndGameModal = ({
           </button>
           {gameState === state.won && (
             <>
-              <h1 className=" text-3xl">Congrats! 🎉</h1>
+              <h1 className=" text-3xl">Fuck Yeah!</h1>
               <dl className="mt-5 grid grid-cols-1 gap-5">
                 <div className="rounded-lg p-4 flex-grow relative nm-flat-background dark:nm-flat-background-dark text-primary dark:text-primary-dark">
                   <dt className="text-sm font-medium truncate">Current Streak</dt>
@@ -135,7 +135,7 @@ export const EndGameModal = ({
             <>
               <img src={Fail} alt="success" height="auto" width="80%" />
               <div className="text-primary dark:text-primary-dark text-4xl text-center">
-                <p>Oops!</p>
+                <p>Get Fucked!</p>
                 <p className="mt-3 text-2xl">
                   The word was <strong>{answer}</strong>
                 </p>
