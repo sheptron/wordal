@@ -30,30 +30,13 @@ const getAnswer = () => {
   const urlParams = new URLSearchParams(queryString);
   const game = urlParams.get('game')
 
-  //window.alert(game);
-
   if(game == null)
   {
     const randomIndex = Math.floor(Math.random() * answers.length)
     return answers[randomIndex].toUpperCase()
   }
 
-  //console.log('getting answer...')
-  //const myElement = window.document.getElementById("gameNumber")!
-  //myElement.textContent = game
-
   const index = parseInt(game)
-
-  //
-  //const element = window.document.getElementById("gameNumber")!;
-  //if (element.textContent != null){
-  //      element.textContent = game;
-  //    }
-  //$0.textContent = game
-  //const [game, setGame] = useLocalStorage('game', game)
-  //for (let i = 0; i < 10; i++){
-  //  console.log(answers[i])
-  //}
 
   const thisAnswer = answers[index].toUpperCase()
   return [ thisAnswer, game ]
@@ -69,7 +52,7 @@ type State = {
   letterStatuses: () => { [key: string]: string }
   submittedInvalidWord: boolean
   darkMode: boolean
-  game: string
+  game: string,
 }
 
 function App() {
@@ -101,7 +84,7 @@ function App() {
     },
     submittedInvalidWord: false,
     darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
-    game: answers[1]
+    game: answers[1],
   }
 
   const [answer, setAnswer] = useLocalStorage('stateAnswer', initialStates.answer())
@@ -144,7 +127,10 @@ function App() {
   }
   const eg: { [key: number]: string } = {}
   const [exactGuesses, setExactGuesses] = useLocalStorage('exact-guesses', eg)
-  const [game, setGame] = useLocalStorage("game", answers[1])
+  const [game, setGame] = useLocalStorage("game", initialStates.game)
+  if (answers[1] != game) {
+    setGame(answers[1]);
+  }
 
   const openModal = () => setIsOpen(true)
   const closeModal = () => setIsOpen(false)
@@ -355,44 +341,14 @@ function App() {
     })
   }
 
-  function updateGameNumber() {
-    // Try updating the cunt here
-    try {
-
-        console.log("Trying to grab the element...")
-        const myElement = window.document.getElementById("gameNumber")!
-
-        console.log("Grabbed element OK")
-        //const [game, setGame] = useLocalStorage("game", answers[1])
-        //const newAnswers = getAnswer()
-
-        console.log("Trying to update element textContent...")
-        myElement.textContent = ("XXX")// newAnswers[1]
-        console.log("Updated OK")
-    }
-    catch(error) {
-        console.log("Error... Cunt!")
-    }
-
-    /*const newAnswers = getAnswer()
-    const myElement = window.document.getElementById("gameNumber")!
-    myElement.textContent = newAnswers[1]*/
-  }
-
   const playAgain = () => {
     if (gameState === state.lost) {
       setGuessesInStreak(0)
     }
-
-    ///
+ 
     var queryString = window.location.search;
-    var urlParams = new URLSearchParams(queryString);
-    const gameFromUrl = urlParams.get('game')
-
-
-    // Get game number from state, but use URL as a default
-    //const game = useLocalStorage.get('game')
-    //const [game, setGame] = useLocalStorage("game", gameFromUrl)
+    var urlParams = new URLSearchParams(queryString); 
+    const game = urlParams.get('game');
 
     var nextGame = 0
     if(game != null)
@@ -403,11 +359,8 @@ function App() {
       urlParams.set('game', nextGame.toString());
       var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlParams.toString();
       window.history.pushState({path:newUrl},'',newUrl);
-      const myElement = window.document.getElementById("gameNumber")!
-      myElement.textContent = nextGame.toString()
-
+      setGame(nextGame.toString())
     }
-    ///
 
     const newAnswers = getAnswer()
     setAnswer(newAnswers[0])
@@ -471,8 +424,8 @@ function App() {
           <h1 className="flex-1 text-center text-xl xxs:text-2xl sm:text-4xl tracking-wide font-bold font-righteous">
             WORDAL
           </h1>
-          <h1 className="flex-1 text-center text-xl xxs:text-2xl sm:text-4xl tracking-wide font-bold font-righteous" id="gameNumber">
-            ?
+          <h1 className="flex-1 text-center text-xl xxs:text-2xl sm:text-4xl tracking-wide font-bold font-righteous">
+            {game}
           </h1>
           <button
             type="button"
@@ -557,14 +510,6 @@ function App() {
           />
         </div>
       </div>
-
-      // Call The Cunt Here
-      <script>
-       window.onpageshow = function updateGameNumberFunction() {
-        updateGameNumber()
-        }
-      </script>
-
     </div>
   )
 }
