@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/wordal/static/css/main.ab30d76c.css",
-    "main.js": "/wordal/static/js/main.633941cd.js",
-    "static/media/Cross.png": "/wordal/static/media/Cross.cbf77228e847522eff11.png",
-    "static/media/Ranade-Variable.ttf": "/wordal/static/media/Ranade-Variable.bb177f94a709e8e8f396.ttf",
-    "index.html": "/wordal/index.html",
-    "static/media/Github.svg": "/wordal/static/media/Github.6a9e1709e73c56888979048bb60e60a5.svg",
-    "static/media/Settings.svg": "/wordal/static/media/Settings.0808c435ed629b919ffa742a20d897f6.svg",
-    "static/media/Info.svg": "/wordal/static/media/Info.ee717ac430bb01bfbbd42aa3dbffe913.svg",
-    "static/media/Close.svg": "/wordal/static/media/Close.f34771d5d250820d8c5ec83c816bf8f5.svg",
-    "main.ab30d76c.css.map": "/wordal/static/css/main.ab30d76c.css.map",
-    "main.633941cd.js.map": "/wordal/static/js/main.633941cd.js.map"
+    "main.css": "/static/css/main.cec6c8d8.css",
+    "main.js": "/static/js/main.4453565e.js",
+    "static/media/Cross.png": "/static/media/Cross.cbf77228e847522eff11.png",
+    "static/media/Ranade-Variable.ttf": "/static/media/Ranade-Variable.bb177f94a709e8e8f396.ttf",
+    "index.html": "/index.html",
+    "static/media/Github.svg": "/static/media/Github.6a9e1709e73c56888979048bb60e60a5.svg",
+    "static/media/Settings.svg": "/static/media/Settings.0808c435ed629b919ffa742a20d897f6.svg",
+    "static/media/Info.svg": "/static/media/Info.ee717ac430bb01bfbbd42aa3dbffe913.svg",
+    "static/media/Close.svg": "/static/media/Close.f34771d5d250820d8c5ec83c816bf8f5.svg",
+    "main.cec6c8d8.css.map": "/static/css/main.cec6c8d8.css.map",
+    "main.4453565e.js.map": "/static/js/main.4453565e.js.map"
   },
   "entrypoints": [
-    "static/css/main.ab30d76c.css",
-    "static/js/main.633941cd.js"
+    "static/css/main.cec6c8d8.css",
+    "static/js/main.4453565e.js"
   ]
 }
